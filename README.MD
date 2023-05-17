@@ -7,6 +7,7 @@ This is the repository for **Temporal Patterns** hands-on lab at DDD Europe 2023
 Title: Temporal Patterns
 Event: DDD Europe 2023 - Amsterdam
 Duration: 2 Hours
+[Link to the workshop](https://2023.dddeurope.com/program/temporal-patterns/)
 
 ## Abstract
 Many systems need to track and keep records of changes to data. It's not just about audit logs, but the ability to travel back in time and actually use the data. For example, you can use it to analyze and predict future events, run what-if scenarios for the past, or use it in the model for solving time-oriented problems.
