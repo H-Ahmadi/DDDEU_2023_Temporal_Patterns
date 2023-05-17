@@ -4,9 +4,9 @@ This is the repository for **Temporal Patterns** hands-on lab at DDD Europe 2023
 ⚠️The repository is empty right now. The content will be added soon.
 
 ## Workshop Details
-Title: Temporal Patterns
-Event: DDD Europe 2023 - Amsterdam
-Duration: 2 Hours
+Title: Temporal Patterns  
+Event: DDD Europe 2023 - Amsterdam  
+Duration: 2 Hours  
 [Link to the workshop](https://2023.dddeurope.com/program/temporal-patterns/)
 
 ## Abstract
