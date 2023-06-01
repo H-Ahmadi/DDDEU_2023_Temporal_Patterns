@@ -34,17 +34,4 @@ public class HistoricalData<T>
     {
         return record.GetValue();
     }
-
-    //public static HistoricalData<T> FromValue(T value, DateTime effectiveSince)
-    //{
-    //    var historicalData = new HistoricalData<T>();
-    //    historicalData.Add(value, effectiveSince);
-    //    return historicalData;
-    //}
-
-
-    //public static implicit operator HistoricalData<T>(T value)
-    //{
-    //    return FromValue(value);
-    //}
 }
