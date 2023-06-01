@@ -15,15 +15,6 @@ namespace SupplyPlanning.Domain.Tests
         }
 
         [Fact]
-        public void pointing_to_an_address_with_a_value_of_temporal_property()
-        {
-            var customer = new Customer(1, "Hadi", "Ahmadi", "Tehran, Iran");
-
-            string? address = customer.Address;
-            address.Should().Be("Tehran, Iran");
-        }
-
-        [Fact]
         public void getting_the_current_address_after_changing_the_address()
         {
             Clock.TravelThroughTime("2023-01-01");

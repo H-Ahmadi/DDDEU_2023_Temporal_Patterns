@@ -1,6 +1,6 @@
 ﻿namespace SupplyPlanning.Domain.Core;
 
-public class HistoricalData<T>
+public class HistoricalData<T> : IReadonlyHistoricalData<T>
 {
     private List<TemporalValue<T>> _items;
     public IReadOnlyList<TemporalValue<T>> Items => _items;
@@ -34,17 +34,4 @@ public class HistoricalData<T>
     {
         return record.GetValue();
     }
-
-    //public static HistoricalData<T> FromValue(T value, DateTime effectiveSince)
-    //{
-    //    var historicalData = new HistoricalData<T>();
-    //    historicalData.Add(value, effectiveSince);
-    //    return historicalData;
-    //}
-
-
-    //public static implicit operator HistoricalData<T>(T value)
-    //{
-    //    return FromValue(value);
-    //}
 }

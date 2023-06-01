@@ -3,12 +3,13 @@ using DateTime = System.DateTime;
 
 namespace SupplyPlanning.Domain.Customers
 {
-    public class Customer 
+    public class Customer
     {
+        private HistoricalData<string> _address = new();
         public long Id { get; private set; }
         public string Firstname { get; private set; }
         public string Lastname { get; private set; }
-        public HistoricalData<string> Address { get; private set; } = new();
+        public IReadonlyHistoricalData<string> Address => _address;
 
         public Customer(long id, string firstname, string lastname, string address) 
             : this(id, firstname, lastname, address, SystemClock.Instance)
@@ -20,11 +21,11 @@ namespace SupplyPlanning.Domain.Customers
             Id = id;
             Firstname = firstname;
             Lastname = lastname;
-            this.Address.Set(address, clock.Now());
+            _address.Set(address, clock.Now());
         }
         public void ChangeAddress(string address, IClock clock)
         {
-            this.Address.Set(address, clock.Now());
+            _address.Set(address, clock.Now());
         }
     }
 }
