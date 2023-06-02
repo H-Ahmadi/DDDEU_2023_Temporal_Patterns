@@ -62,7 +62,4 @@ public class Testing_the_demand_calculation
 
         actualDemands.Should().BeEquivalentTo(expectedDemands);
     }
-
-
-
 }
