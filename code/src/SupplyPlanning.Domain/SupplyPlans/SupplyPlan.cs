@@ -5,12 +5,14 @@ namespace SupplyPlanning.Domain.SupplyPlans;
 
 public class SupplyPlan
 {
+    public SupplyPlanId Id { get; private set; }
     public string Title { get; private set; }
     public DateRange ActivePeriod { get; private set; }
     public List<DayOfWeek> ScheduleDays { get; private set; }
     public List<DemandItem> DemandEntries { get; private set; }
     public SupplyPlan(string title, DateRange activePeriod, List<DayOfWeek> scheduleDays, List<DemandItem> demandEntries)
     {
+        this.Id = SupplyPlanId.New();
         Title = title;
         ActivePeriod = activePeriod;
         ScheduleDays = scheduleDays;
