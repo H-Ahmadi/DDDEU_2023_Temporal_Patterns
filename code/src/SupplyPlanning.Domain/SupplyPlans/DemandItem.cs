@@ -2,7 +2,7 @@
 
 namespace SupplyPlanning.Domain.SupplyPlans;
 
-public class DemandItem : ValueObject
+public class DemandItem : ValueObject, ICloneable<DemandItem>
 {
     public double Amount { get; set; }
     public string UnitOfMeasure { get; set; }
@@ -19,5 +19,9 @@ public class DemandItem : ValueObject
         yield return Amount;
         yield return UnitOfMeasure;
         yield return ProductId;
+    }
+    public DemandItem Clone()
+    {
+        return new DemandItem(this.Amount, this.UnitOfMeasure, this.ProductId);
     }
 }

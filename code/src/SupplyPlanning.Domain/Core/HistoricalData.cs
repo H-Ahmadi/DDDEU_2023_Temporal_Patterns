@@ -23,7 +23,7 @@ public class HistoricalData<T> : IReadonlyHistoricalData<T>
         //TODO: consider if client is asking for an effectiveDate which is even before the first one
         if (_items.Any())
             return Items
-                .Where(a => a.EffectiveSince < effectiveSince)
+                .Where(a => a.EffectiveSince <= effectiveSince)
                 .OrderBy(a => a.EffectiveSince)
                 .Last().Value;
 

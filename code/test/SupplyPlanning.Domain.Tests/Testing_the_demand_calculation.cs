@@ -7,12 +7,14 @@ using static SupplyPlanning.Domain.Tests.TestUtils.TestData.TestProducts;
 
 namespace SupplyPlanning.Domain.Tests;
 
-public class Testing_the_demand_calculation
+public class Testing_the_demand_calculation : TimeTravelingTest
 {
     [Fact]
     public void calculate_total_demands_in_a_period()
     {
+        Clock.TravelTo("2023-01-01");
         var plan = Schedule.SupplyPlan()
+                        .UsingTheClock(Clock)
                         .BetweenDates(new(2023, 01, 01), new(2023, 12, 31))
                         .Named("Weekly Fruit Supply")
                         .OnDays(Monday, Wednesday, Friday)
@@ -37,11 +39,13 @@ public class Testing_the_demand_calculation
     [Fact]
     public void calculate_demands_of_days_in_a_period()
     {
+        Clock.TravelTo("2023-01-01");
         var demands = new List<DemandItem>() {
             new(50, "KG", Apple), 
             new(30, "KG", Banana)
         };
         var plan = Schedule.SupplyPlan()
+                            .UsingTheClock(Clock)
                             .BetweenDates(new(2023, 01, 01), new(2023, 12, 31))
                             .Named("Weekly Fruit Supply")
                             .OnDays(Monday, Wednesday, Friday)

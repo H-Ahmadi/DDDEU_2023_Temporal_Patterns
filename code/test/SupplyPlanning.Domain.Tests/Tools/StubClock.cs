@@ -10,12 +10,12 @@ public class StubClock : IClock
         _now = now;
     }
     public DateTime Now() => _now;
-    public void TravelThroughTime(DateTime targetDate)
+    public void TravelTo(DateTime targetDate)
     {
         this._now = targetDate;
     }
 
-    public void TravelThroughTime(string dateInString)
+    public void TravelTo(string dateInString)
     {
         this._now = DateTime.Parse(dateInString);
     }

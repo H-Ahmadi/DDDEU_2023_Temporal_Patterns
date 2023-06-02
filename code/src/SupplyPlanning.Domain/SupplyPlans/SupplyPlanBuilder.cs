@@ -13,6 +13,7 @@ public class SupplyPlanBuilder
     private string _title;
     private DateRange _activePeriod;
     private List<DayOfWeek> _dayOfWeeks;
+    private IClock _clock = SystemClock.Instance;
     private List<DemandItem> _demandItems = new();
 
     public SupplyPlanBuilder Named(string title)
@@ -41,9 +42,14 @@ public class SupplyPlanBuilder
         this._demandItems.AddRange(items);
         return this;
     }
+    public SupplyPlanBuilder UsingTheClock(IClock clock)
+    {
+        this._clock = clock;
+        return this;
+    }
     public SupplyPlan Build()
     {
-        return new SupplyPlan(_title, _activePeriod, _dayOfWeeks, _demandItems);
+        return new SupplyPlan(_title, _activePeriod, _dayOfWeeks, _demandItems, this._clock);
     }
 }
 
