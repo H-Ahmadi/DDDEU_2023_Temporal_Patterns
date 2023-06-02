@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using SupplyPlanning.Domain.Core;
-using SupplyPlanning.Domain.Core.Temporals;
 using SupplyPlanning.Domain.SupplyPlans;
 using SupplyPlanning.Domain.Tests.TestUtils;
 using static System.DayOfWeek;
