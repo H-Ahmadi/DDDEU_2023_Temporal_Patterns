@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using SupplyPlanning.Domain.Core;
+using SupplyPlanning.Domain.Core.Temporals;
 using SupplyPlanning.Domain.SupplyPlans;
 using SupplyPlanning.Domain.Tests.TestUtils;
 using static System.DayOfWeek;
@@ -21,7 +22,7 @@ public class Testing_the_demand_calculation
                         .IncludingDemand(new(20, "KG", Orange))
                         .Build();
 
-        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 02, 01)); //this range have 8 day occurance
+        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 02, 01)); //(8 active days)
         var expectedDemands = new List<DemandItem>()
         {
             new(400, "KG", Apple),
@@ -48,8 +49,8 @@ public class Testing_the_demand_calculation
                             .IncludingDemands(demands)
                             .Build();
 
-        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 01, 25)); //this range have 5 day occurance
-        var expectedDemands = new List<DemandsForDate>()
+        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 01, 25)); //(5 active days)
+        var expectedDemands = new List<DemandsInDay>()
         {
             new(new(2023,01,16), demands),
             new(new(2023,01,18), demands),
@@ -62,5 +63,7 @@ public class Testing_the_demand_calculation
 
         actualDemands.Should().BeEquivalentTo(expectedDemands);
     }
+
+
 
 }

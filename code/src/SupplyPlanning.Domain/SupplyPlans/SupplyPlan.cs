@@ -30,11 +30,11 @@ public class SupplyPlan
             .ToList();
     }
 
-    public List<DemandsForDate> DemandsInRange(DateRange calculationRange)
+    public List<DemandsInDay> DemandsInRange(DateRange calculationRange)
     {
         return OccurrenceDays()
             .Where(calculationRange.Contains)
-            .Select(a => new DemandsForDate(a, DemandEntries))
+            .Select(a => new DemandsInDay(a, DemandEntries))
             .ToList();
     }
 }

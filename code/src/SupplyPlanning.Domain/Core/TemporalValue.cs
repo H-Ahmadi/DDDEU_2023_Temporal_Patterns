@@ -17,7 +17,7 @@ public class TemporalValue<T>
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
+        if (obj.GetType() != GetType()) return false;
         return Equals((TemporalValue<T>)obj);
     }
     public override int GetHashCode()

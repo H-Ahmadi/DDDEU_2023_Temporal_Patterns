@@ -15,8 +15,8 @@ public class HistoricalData<T> : IReadonlyHistoricalData<T>
     public T? GetValue()
     {
         if (_items.Any())
-            return _items.OrderBy(a=> a.EffectiveSince).Last().Value;
-        return default(T);
+            return _items.OrderBy(a => a.EffectiveSince).Last().Value;
+        return default;
     }
     public T? EffectiveValueAt(DateTime effectiveSince)
     {
@@ -27,7 +27,7 @@ public class HistoricalData<T> : IReadonlyHistoricalData<T>
                 .OrderBy(a => a.EffectiveSince)
                 .Last().Value;
 
-        return default(T);
+        return default;
     }
 
     public static implicit operator T?(HistoricalData<T> record)

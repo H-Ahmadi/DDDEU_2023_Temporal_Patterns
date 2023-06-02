@@ -1,6 +1,8 @@
-﻿namespace SupplyPlanning.Domain.SupplyPlans;
+﻿using SupplyPlanning.Domain.Core;
 
-public class DemandItem
+namespace SupplyPlanning.Domain.SupplyPlans;
+
+public class DemandItem : ValueObject
 {
     public double Amount { get; set; }
     public string UnitOfMeasure { get; set; }
@@ -11,20 +13,11 @@ public class DemandItem
         UnitOfMeasure = unitOfMeasure;
         ProductId = productId;
     }
-    protected bool Equals(DemandItem other)
-    {
-        return Amount.Equals(other.Amount) && UnitOfMeasure == other.UnitOfMeasure && ProductId == other.ProductId;
-    }
-    public override bool Equals(object? obj)
-    {
-        if (ReferenceEquals(null, obj)) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
-        return Equals((DemandItem)obj);
-    }
 
-    public override int GetHashCode()
+    protected override IEnumerable<object> GetEqualityComponents()
     {
-        return HashCode.Combine(Amount, UnitOfMeasure, ProductId);
+        yield return Amount;
+        yield return UnitOfMeasure;
+        yield return ProductId;
     }
 }
