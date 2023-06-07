@@ -23,12 +23,12 @@ public class Testing_the_demand_calculation : TimeTravelingTest
                         .IncludingDemand(new(20, "KG", Orange))
                         .Build();
 
-        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 02, 01)); //(8 active days)
+        var calculationRange = new DateRange(new(2023, 01, 15), new(2023, 01, 31)); //(7 active days)
         var expectedDemands = new List<DemandItem>()
         {
-            new(400, "KG", Apple),
-            new(240, "KG", Banana),
-            new(160, "KG", Orange),
+            new(350, "KG", Apple),
+            new(210, "KG", Banana),
+            new(140, "KG", Orange),
         };
 
         var demands = plan.TotalDemandsInRange(calculationRange);
