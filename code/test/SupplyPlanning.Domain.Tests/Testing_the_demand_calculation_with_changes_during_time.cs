@@ -87,6 +87,6 @@ public class Testing_the_demand_calculation_with_changes_during_time : TimeTrave
 
         var actualDemands = plan.DemandsInRange(calculationRange);
 
-        //actualDemands.Should().BeEquivalentTo(expectedDemands);
+        actualDemands.Should().BeEquivalentTo(expectedDemands);
     }
 }
