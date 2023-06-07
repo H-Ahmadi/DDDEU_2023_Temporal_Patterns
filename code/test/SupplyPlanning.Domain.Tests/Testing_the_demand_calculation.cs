@@ -42,7 +42,8 @@ public class Testing_the_demand_calculation : TimeTravelingTest
         Clock.TravelTo("2023-01-01");
         var demands = new List<DemandItem>() {
             new(50, "KG", Apple), 
-            new(30, "KG", Banana)
+            new(30, "KG", Banana),
+            new(20, "KG", Orange),
         };
         var plan = Schedule.SupplyPlan()
                             .UsingTheClock(Clock)
