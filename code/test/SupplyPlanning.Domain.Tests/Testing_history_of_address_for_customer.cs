@@ -11,7 +11,7 @@ namespace SupplyPlanning.Domain.Tests
         {
             var customer = new Customer(1, "Olivia", "Johnson", "123 Maple Street");
 
-            customer.Address.GetValue().Should().Be("456 Oak Avenue");
+            customer.Address.GetValue().Should().Be("123 Maple Street");
         }
 
         [Fact]
